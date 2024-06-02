@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Работа с записями</title>
+
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <h1>Работы с записями</h1>
+
+    <form class="add-rec-form">
+      <label for="title">Заголовок:</label>
+      <input type="text" id="title" />
+
+      <label for="dscr">Описание:</label>
+      <textarea id="dscr"></textarea>
+
+      <input class="btn" type="submit" value="Добавить" />
+    </form>
+    
+    <ul class="records-list"></ul>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
