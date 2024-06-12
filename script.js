@@ -28,12 +28,15 @@ class RecWork {
       this.recs.push(record);
 
       this.saveRecs();
+
+      return record;
    }
 
    delRec(id) {
       this.recs = this.recs.filter((record) => record.id !== id);
 
       this.saveRecs();
+      return recs
    }
    
    getRecs() {
@@ -41,6 +44,7 @@ class RecWork {
    }
 
    getRec(id) {
+      console.log(this.recs.find((record) => record.id === id))
       return this.recs.find((record) => record.id === id);
    }
 
@@ -60,6 +64,8 @@ class RecWork {
       record.updated_time = new Date();
 
       this.saveRecs();
+
+      return record;
    }
 
    toggleRecDone(id) {
@@ -70,6 +76,8 @@ class RecWork {
       record.marker_done = !record.marker_done;
 
       this.saveRecs();
+
+      return record;
    }
 
    saveRecs() {
@@ -137,32 +145,32 @@ class RecWork {
       }
 //2. Выполнение Тестирования класса RecWork в браузере через JS.
 
-/* const newRec = {
+/*const newRec = {
    title: "Запись №1",
    description: "Здесь что-то написано",
-};
+},
+      recs = recManage.addRec(newRec),
+      idToDel = recs.id; // Сохранение идентификатора удаляемой записи
 //Добавление
-console.log("Добавилась запись:", recManage.addRec(newRec))
+console.log("Добавилась запись:", recs)
 
-// Удаление
-const idToDel = newRec.id; 
+// Вывод конкретной записи по Айди
+const findRec = recManage.getRec(idToDel); // Поиск удаленной записи по ее идентификатору
+console.log(findRec === null ? "Запись не найдена" : `Вывод одной записи:${findRec}`);
 
-console.log(recManage.delRec(idToDel));
-
-console.log(recManage.getRecs());
-
- // Вывод конкретной записи по Айди
-const findRec = recManage.getRec(idToDel); 
-console.log(findRec === null ? "Запись не найдена" : findRec);
-
- // Обновление
+// Обновление
 const updRec = {
    title: "Запись №3",
    description: "Здесь теперь описание 3 записи",
 };
 
-console.log(recManage.updRec(idToDel, updRec));
+console.log("Обновление", recManage.updRec(idToDel, updRec));
 
- // Проверка метода toggleRecDone()
+console.log("Получение всех записей", recManage.getRecs());
 
-console.log(recManage.toggleRecDone(idToDel)); */
+ // Маркер выполнения toggleRecDone()
+
+ console.log(recManage.toggleRecDone(idToDel)); // Использование идентификатора удаленной записи для переключения маркера выполнения
+// Удаление
+
+console.log("Вывод удаленной записи:", recManage.delRec(idToDel));*/
